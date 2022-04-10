@@ -1,0 +1,83 @@
+\documentclass[oneside, b5paper]{book}
+%% 总设置
+\usepackage{xeCJK} % 中英日支持
+\setCJKmainfont{LXGW Bright}
+\setmainfont{LXGW Bright}
+\usepackage{hyperref} % 超链接引用
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    pdftitle={EJU PHY},
+    pdfauthor={PENG AO}
+}
+%% 图片与插图设置
+\usepackage{graphicx} % 图片插入
+\graphicspath{{./img}}
+\usepackage{amsmath} % 一般公式
+\usepackage{amssymb} % 特殊符号
+\usepackage{tikz} % 2d绘图
+\usepackage{tikz-3dplot} % 3d绘图
+\usetikzlibrary{
+    decorations.pathmorphing,
+    decorations.markings,
+    angles, quotes, calc
+}
+\tikzset{
+    spring/.style={decoration={
+        coil,
+        segment length=1mm,
+        amplitude=2mm,
+        aspect=0.5,
+        pre length=1.5mm,
+        post length=1.5mm
+    }, decorate}, % preset style for a spring
+    midarrow/.style={postaction={decoration={
+        markings,
+        mark= at position 0.5 with {\arrow{latex}}
+    }, decorate}}  % preset style for arrow inline
+}
+\newcommand{\drawangle}[4][$\theta$]{
+    \coordinate (a) at #2;
+    \coordinate (b) at #3;
+    \coordinate (c) at #4;
+    \draw pic [draw, "#1", angle eccentricity=1.5] {angle=a--b--c};
+} % command for drawing angle
+%% 文章展示设置
+% 0-chapter：章节
+% 1-section：小节
+% 2-subsection：次小节
+% 3-subsubsection：次次小节。用于实际知识点
+% 4-paragraph：段落。用于次次小节内并列的小知识点，或者次小节内简短补充的知识点，一般出现在开头
+% 5-subparagraph：次段落。用于段落内的并列内容
+\usepackage{ascmac} % 跨页显示
+\usepackage{fancybox} % 带框文本
+\usepackage{multicol} % 文字分栏
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist % 临时更改页宽
+\usepackage{tocloft} % 设置lof
+\usepackage{indentfirst} % 段首自动缩进
+\setcounter{tocdepth}{2} % 设置目录层级
+\setcounter{secnumdepth}{3} % 设置小节编号层级
+\renewcommand\thesubsubsection{\S} % 设置次次小节编号模式
+%% 版本控制设置
+\def\version{3.11} % 版本号
+\def\updatedate{\today} % 更新日期
+
+\begin{document}
+    % title + acknowledge + preface + TOC
+    \frontmatter
+    \include{frontmatter.tex}
+    % main part
+    \mainmatter
+    \include{chap1.tex}
+    \include{chap2.tex}
+    \include{chap3.tex}
+    \include{chap4.tex}
+    \include{chap5.tex}
+    % appendix + lof
+    \appendix
+    \include{appendix.tex}
+    % postscript
+    \backmatter
+    \include{backmatter.tex}
+\end{document}

@@ -1,0 +1,43 @@
+% chapter 2 section 1
+
+\section{热与能量}
+
+\paragraph{热}即是宏观上物体处于静止状态，但其中构成该物体的分子仍然在做着随机、杂乱无章的运动，即\underline{热运动}。在这个过程中分子彼此不断碰撞，交换着热运动时所具有的能量。这些转移在分子间的热运动的能量就是所谓的\underline{热}或是\underline{热能}，日文为熱/熱エネルギー。
+
+\paragraph{温度}由于一般的观察只能停留于宏观层面，很难真正地去计算分子间实际交换的能量，所以我们用温度这个宏观物理量去描述粒子的微观信息。
+\begin{itembox}[l]{开氏温度}
+    \centering
+    絶対温度$T=t+273(K)$
+\end{itembox}
+\begin{itembox}[l]{热容量与比热}
+    \begin{itemize}
+        \item 热容量：物体升高1K所需的热量
+        \item 比热：单位质量的物体升高1K所需的热量，物体单位质量的热容量
+    \end{itemize}
+    \begin{gather*}
+        C=m\cdot c\\
+        \Delta Q=C\cdot\Delta t=c\cdot m\cdot\Delta t
+    \end{gather*}
+\end{itembox}
+
+\paragraph{断热容器}是不与周边物体做热交换的容器。在这样的环境下，容器内的物体只会与彼此传递热量，从而达到了整体热量不增不减的效果，即\underline{热量守恒}，日文为熱量保存。
+\begin{itembox}[l]{热量守恒定律}
+    \begin{itemize}
+        \item 系统中吸热=系统中放热
+        \item $Q_\textrm{吸}=Q_\textrm{放}$
+    \end{itemize}
+\end{itembox}
+
+\paragraph{潜热}在物体发生三态变化时，会有一段持续吸热/放热但温度不变的过程。因为物体的温度仅取决于内部分子的动能，然而物体改变状态时只有其分子间力引起的势能发生变化，所以虽然吸热/放热但温度不增减。我们将这个期间内吸收/放出的热量称为\underline{潜热}。常有融解热、蒸发热。
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \node[draw, circle] (A) at (0, 0) {固态};
+        \node[draw, circle] (B) at (60:3.6) {气态};
+        \node[draw, circle] (C) at (3.6, 0) {液态};
+        \draw[thick, <->] (A) -- node[fill=white] {昇華 昇華} (B);
+        \draw[thick, <->] (A) -- node[fill=white] {凝固 融解} (C);
+        \draw[thick, <->] (B) -- node[fill=white] {凝縮 蒸発} (C);
+    \end{tikzpicture}
+    \caption{三态变化}
+\end{figure}
