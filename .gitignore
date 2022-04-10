@@ -1,2 +1,4 @@
 .DS_Store
 latex_output/
+*.aux
+
