@@ -28,11 +28,9 @@
         \begin{tikzpicture}[scale=0.65]
             \draw[dashed] (0, -1.5) -- (0, 1.5);
             \draw[thick, -latex] (0, 0) -- (0, 1.2) node[right] {$\vec{\omega}$};
-            \draw[thick, -latex] (0, 0) -- node[above] {$\vec{r}$} ({1.5/sqrt(2)}, {-0.3*1.5/sqrt(2)});
-            \draw[thick, -latex] ({1.5/sqrt(2)}, {-0.3*1.5/sqrt(2)}) -- ++ ({0.8*1.5/sqrt(2)}, {0.3*0.8*1.5/sqrt(2)}) node[right] {$\vec{v}$} ;
-            \begin{scope}[yscale=0.3]
-                \draw[dashed] (0, 0) circle (1.5);
-            \end{scope}
+            \draw[dashed] (0,0) circle (1.5 and 0.5);
+            \draw[thick, -latex] (0, 0) -- node[above] {$\vec{r}$} (-45:1.5 and 0.5);
+            \draw[thick, -latex] (-45:1.5 and 0.5) -- ++ (45:1.5 and 0.5) node[right] {$\vec{v}$};
         \end{tikzpicture}
         \caption{角速度}
     \end{minipage}

@@ -35,7 +35,10 @@
     midarrow/.style={postaction={decoration={
         markings,
         mark= at position 0.5 with {\arrow{latex}}
-    }, decorate}}  % preset style for arrow inline
+    }, decorate}},  % preset style for arrow inline
+    xyplane/.style={canvas is xy plane at z=#1},
+    xzplane/.style={canvas is xz plane at y=#1},
+    yzplane/.style={canvas is yz plane at x=#1},
 }
 \newcommand{\drawangle}[4][$\theta$]{
     \coordinate (a) at #2;
