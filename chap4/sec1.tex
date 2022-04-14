@@ -298,6 +298,38 @@
     \end{equation*}
 \end{itembox}
 
+此外，假设与电容器串联的外路的总电阻为$R$，那么根据基尔霍夫定律可得
+\begin{gather*}
+    E=IR+\frac{Q}{C}\\
+    I=\frac{E-\frac{Q}{C}}{R}
+\end{gather*}
+当电路接通的瞬间，电容器不带电($Q=0$)，所以回路电流为$I=\frac{E}{R}$。如此一来则可以粗略地认为此时电容器就是一根导线。
+\begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0) -- (4,0) node[right] {$t$};
+            \draw[->] (0,-1.5) -- (0,1.5) node[above] {$I$};
+            \draw[thick] (0,0) -- (0.5,0) -- (0.5,1);
+            \draw[thick, domain=0.5:2.5] plot[smooth] (\x, {exp(2-4*\x)});
+            \draw[thick] (2.5,0) -- (2.5,-1);
+            \draw[thick, domain=2.5:4] plot[smooth] (\x, {-exp(10-4*\x)});
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0) -- (4,0) node[right] {$t$};
+            \draw[->] (0,-1.5) -- (0,1.5) node[above] {$V$};
+            \draw[thick] (0,0) -- (0.5,0);
+            \draw[thick, domain=0.5:2.5] plot[smooth] (\x, {1-exp(2-4*\x)});
+            \draw[thick, domain=2.5:4] plot[smooth] (\x, {exp(10-4*\x)});
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{电容器储能时I与V的变化}
+\end{figure}
+
 \paragraph{损耗}在给电容器充电的过程中，电源做功\footnote{给$Q$大小的电荷提供了$V$大小的电压，使其获得了$QV$大小的电势能}为$W=QV$。根据能量守恒定律可知，其中有
 \begin{equation*}
     W-U=QV-\frac12QV=\frac12QV
