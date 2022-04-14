@@ -301,9 +301,34 @@
     V=\frac{U}{q}=k\frac{Q}{r}
 \end{gather*}
 
-\subsection{\ldots}
+\subsection{电容器储能公式推导}
 
-\textbackslash\textbackslash TODO
+\begin{equation*}
+    U=\int_0^Q\frac{q}{C}dq=\frac{Q^2}{2C}
+\end{equation*}
+
+\subsection{电容器储能损耗推导}
+
+假设电路中除电容器以外的外阻为$R$，则回路方程为
+\begin{equation*}
+    E=RI+\frac{Q}{C}\implies
+    \frac{dQ}{dt}=I=\frac{E-\frac{Q}{C}}{R}
+\end{equation*}
+对等式两边积分可得电荷量随时间变化的函数
+\begin{gather*}
+    \int\frac{dQ}{E-\frac{Q}{C}}=\int\frac{dt}{R}\\
+    -C\log\left\lvert E-\frac{Q}{C}\right\rvert=\frac{t}{R}+\gamma\\
+    E-\frac{Q}{C}=\Gamma\exp\left(\frac{t}{RC}\right)\quad\left(\Gamma=\exp\left(-\frac{\gamma}{C}\right)\right)\\
+\end{gather*}
+根据初始条件$(t,Q)=(0,0)$可得$\Gamma=E$，因此
+\begin{equation*}
+    Q(t)=CE\left(1-\exp\left(-\frac{t}{RC}\right)\right)
+\end{equation*}
+最后使用$W=I^2Rt$积分求解即可
+\begin{gather*}
+    I=\frac{dQ}{dt}=\frac{E}{R}\exp\left(-\frac{t}{RC}\right)\\
+    W=\int_0^\infty I^2Rdt=\frac12CE^2
+\end{gather*}
 
 \chapter{历年考点}
 
