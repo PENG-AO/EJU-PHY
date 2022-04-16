@@ -330,6 +330,49 @@
     W=\int_0^\infty I^2Rdt=\frac12CE^2
 \end{gather*}
 
+\subsection{直线电流磁场推导}
+
+根据Biot-Savart定律可得
+\begin{align*}
+    \mathbf{B}=&\frac{\mu_0}{4\pi}\int_{-\infty}^{\infty}\mathbf{J}\times\frac{\mathbf{r}-\mathbf{l}}{|\mathbf{r}-\mathbf{l}|^3}d^3l\\
+    =&\frac{\mu_0I}{4\pi}\int_{-\infty}^{\infty}d\mathbf{l}\times\frac{\mathbf{r}-\mathbf{l}}{|\mathbf{r}-\mathbf{l}|^3}
+\end{align*}
+设$(0,0,r_z)$为矢量基准点，则可简记$r=(r_x,r_y,0)$
+\begin{align*}
+    \mathbf{B}=&\frac{\mu_0I}{4\pi}\int_{-\infty}^{\infty}dl\cdot e_z\times\frac{r_xe_x+r_ye_y-le_z}{|r^2+l^2|^{3/2}}\\
+    =&\frac{\mu_0I}{4\pi}\int_{-\infty}^{\infty}dl\frac{r_xe_y-r_ye_x}{|r^2+l^2|^{3/2}}
+\end{align*}
+关于$l$求解反常积分可得
+\begin{align*}
+    \mathbf{B}=&\frac{\mu_0I}{4\pi}\left[\frac{l(r_xe_y-r_ye_x)}{r^2\sqrt{r^2+l^2}}\right]_{-\infty}^{\infty}\\
+    =&\frac{\mu_0I}{2\pi r^2}(r_xe_y-r_ye_x)
+\end{align*}
+将结果改写为位置向量的形式
+\begin{equation*}
+    \mathbf{B}=\frac{\mu_0I}{2\pi r^2}(-r_y,r_x,0)
+\end{equation*}
+即大小为$B=\frac{\mu_0I}{2\pi r}$，方向与$\mathbf{r}$垂直的磁场
+
+\subsection{环形电流磁场推导}
+
+设位于xy平面上的环形电流半径为$r$，计算z轴上点$\mathbf{z}=(0,0,z)$处的磁场。则根据Biot-Savart定律$\mathbf{l}=(l\cos\phi,l\sin\phi,0)$处的微小电流产生的磁场即为
+\begin{align*}
+    d\mathbf{B}=&\frac{\mu_0I}{4\pi}\frac{d\mathbf{l}\times(\mathbf{z}-\mathbf{l})}{|\mathbf{z}-\mathbf{l}|^3}\\
+    =&\frac{\mu_0I}{4\pi|\mathbf{z}-\mathbf{l}|^3}(-\sin\phi,\cos\phi,0)dl\times(-l\cos\phi,-l\sin\phi,r)\\
+    =&\frac{\mu_0I}{4\pi|\mathbf{z}-\mathbf{l}|^3}(r\cos\phi,r\sin\phi,l)dl
+\end{align*}
+分别关于xyz三个方向积分可得
+\begin{align*}
+    \begin{cases}
+        B_x=\frac{\mu_0}{4\pi}\oint\frac{z\cos\phi}{|\mathbf{z}-\mathbf{l}|^3}dl
+        =\frac{\mu_0}{4\pi}\int_0^{2\pi}\frac{z\cos\phi}{|\mathbf{z}-\mathbf{l}|^3}ld\phi=0\\
+        B_y=\frac{\mu_0}{4\pi}\oint\frac{z\sin\phi}{|\mathbf{z}-\mathbf{l}|^3}dl=0\\
+        B_z=\frac{\mu_0}{4\pi}\oint\frac{l}{|\mathbf{z}-\mathbf{l}|^3}dl
+        =\frac{\mu_0}{4\pi}\oint\frac{ldl}{(z^2+l^2)^{3/2}}=\frac{\mu_0Il^2}{2(z^2+l^2)^{3/2}}\\
+    \end{cases}
+\end{align*}
+可见除$B_z$以外的磁场均为0，并且当$z=0$时$B_z=\frac{\mu_0I}{2l}$的确成成立
+
 \chapter{历年考点}
 
 \section{年份题号对照表}
