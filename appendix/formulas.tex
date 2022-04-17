@@ -1,0 +1,633 @@
+% appendix of formulas
+
+\chapter{公式总结}
+
+\section{三角复习}
+
+\subsection{弧度制}
+
+\begin{itemize}
+    \item 定义：
+    \begin{equation*}
+        \textrm{弧度}=\frac{\textrm{弧长}}{\textrm{半径}}
+    \end{equation*}
+    \item 特殊值：
+    \begin{center}
+        \renewcommand\arraystretch{1.2}
+        \begin{tabular}{c|c|c|c}
+            \hline
+            角度         & 弧度        & 角度         & 弧度 \\\hline
+            $30^\circ$  & $\frac\pi6$ & $120^\circ$  & $\frac{2\pi}3$\\
+            $45^\circ$  & $\frac\pi4$ & $135^\circ$  & $\frac{3\pi}4$\\
+            $60^\circ$  & $\frac\pi3$ & $150^\circ$  & $\frac{5\pi}6$\\
+            $90^\circ$  & $\frac\pi2$ & $180^\circ$  & $\pi$\\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{itemize}
+
+\subsection{三角函数}
+
+\begin{itemize}
+    \item 正弦：$\frac{对边}{斜边}$
+    \item 余弦：$\frac{邻边}{斜边}$
+    \item 正切：$\frac{对边}{邻边}$
+    \item 特殊值：
+    \begin{center}
+        \renewcommand\arraystretch{1.2}
+        \begin{tabular}{c|ccc}
+            \hline
+            角度 & 正弦 & 余弦 & 正切 \\\hline
+            $0^\circ$   & $0$              & $1$              & $0$              \\
+            $30^\circ$  & $\frac12$        & $\frac{\sqrt3}2$ & $\frac1{\sqrt3}$ \\
+            $45^\circ$  & $\frac{\sqrt2}2$ & $\frac{\sqrt2}2$ & $1$              \\
+            $60^\circ$  & $\frac{\sqrt3}2$ & $\frac12$        & $\sqrt3$         \\
+            $90^\circ$  & $1$              & $0$              & $\infty$         \\
+            $180^\circ$ & $0$              & $-1$             & $\infty$         \\
+            $\frac\pi2-\theta$ & $\cos\theta$ & $\sin\theta$ & $\frac1{\tan\theta}$\\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{itemize}
+
+\section{微分公式}
+
+\subsection{基本初等函数的导数}
+
+\begin{itemize}
+    \item 常函数：$y^\prime=0$
+    \item 幂函数：$y^\prime=a\cdot x^{a-1}$
+    \item 指数函数：$y^\prime=a^x\cdot\ln a$
+    \item 对数函数：$\frac1{x\ln a}$
+    \item 正弦函数：$(\sin x)^\prime=\cos x$
+    \item 余弦函数：$(\cos x)^\prime=-\sin x$
+    \item 正切函数：$(\tan x)^\prime=\frac1{\cos^2x}$
+\end{itemize}
+
+\subsection{组合函数的导数}
+
+\begin{itemize}
+    \item $(f(x)\pm g(x))^\prime=f^\prime(x)\pm g^\prime(x)$
+    \item $(f(x)\cdot g(x))^\prime=f^\prime(x)\cdot g(x)+f(x)\cdot g^\prime(x)$
+    \item $(\frac{f(x)}{g(x)})^\prime=\frac{f^\prime(x)\cdot g(x)-f(x)\cdot g^\prime(x)}{g^2(x)}$
+    \item $f(g(x))^\prime=\frac{df(x)}{dg(x)}\cdot\frac{dg(x)}{dx}=f^\prime(g(x))g^\prime(x)$
+\end{itemize}
+
+\section{积分公式}
+
+\begin{itemize}
+    \item 常函数：$\int kdx=kx+C$
+    \item 幂函数($a\neq-1$)：$\int x^adx=\frac{x^{a+1}}{a+1}+C$
+    \item 幂函数($a=-1$)：$\int x^{-1}dx=\ln|x|+C$
+    \item 指数函数：$\int a^xdx=\frac{a^x}{\ln a}+C$
+    \item 正弦函数：$\int\sin xdx=-\cos x+C$
+    \item 余弦函数：$\int\cos xdx=\sin x+C$
+\end{itemize}
+
+\section{力学公式}
+
+\subsection{运动与力}
+
+\paragraph{运动学基本公式}
+\begin{gather*}
+    v=v_0+at\\
+    x=v_0t+\frac{1}{2}at^2\\
+    v^2-{v_0}^2=2ax
+\end{gather*}
+
+\paragraph{运动分析}
+\begin{itemize}
+    \item 合成分解：$\vec{v}\rightleftharpoons\vec{v_1}+\vec{v_2}$
+    \item 相对速度：$\textrm{相对}=\textrm{对象}-\textrm{参考/基准}$
+\end{itemize}
+
+\paragraph{胡克定律}
+\begin{equation*}
+    \vec{F}=-k\vec{\Delta x}\quad(k:\textrm{バネ定数},\Delta x:\textrm{基于原长的形变量})
+\end{equation*}
+
+\paragraph{弹簧串并联}
+\begin{itemize}
+    \item 串联(受力一致)
+    \begin{equation*}
+        \begin{cases}
+            F=k_1x_1=k_2x_2\\
+            F=K(x_1+x_2)
+        \end{cases}\implies\frac1K=\frac1{k_1}+\frac1{k_2}
+    \end{equation*}
+    \item 并联(形变一致)
+    \begin{equation*}
+        \begin{cases}
+            F=F_1+F_2=k_1x+k_2x\\F=Kx
+        \end{cases}\implies K=k_1+k_2
+    \end{equation*}
+\end{itemize}
+
+\paragraph{牛顿运动定律}
+\begin{itemize}
+    \item 惯性法则：物体\underline{不受力}或\underline{合外力为0}时，运动状态不发生改变(惯性)。
+    \item 运动法则：物体受力后会产生与力\underline{同方向}的加速度。加速度大小与力的大小成正比，与物体质量成反比。
+    \begin{equation*}
+        \vec{a}=k\cdot\frac{\vec{F}}{m}\to
+        \vec{F}=m\vec{a}
+    \end{equation*}
+    \item 作用力与反作用力法则：物体A向物体B施力后，会受到来自物体B的\underline{大小相等}、\underline{方向相反}(等大反向)的力。
+\end{itemize}
+
+\paragraph{力矩}
+\begin{equation*}
+    M=F\cdot r\cdot\sin\theta
+\end{equation*}
+
+\paragraph{刚体平衡条件}
+\begin{itemize}
+    \item 受力平衡：$\sum\vec{F}=0$
+    \item 力矩平衡：$\sum\vec{M}=0$
+\end{itemize}
+
+\subsection{能量与动量}
+
+\paragraph{功}
+\begin{equation*}
+    W=\vec{F}\cdot\vec{s}=Fs\cos\theta
+\end{equation*}
+\begin{itemize}
+    \item 可正可负，取决于位移的方向
+    \item 力与位移方向垂直时不做功，$W=0$
+\end{itemize}
+
+\paragraph{动能}
+\begin{equation*}
+    E_k=\frac12mv^2
+\end{equation*}
+
+\paragraph{势能}
+\begin{itemize}
+    \item 重力势能(重力による位置エネルギー)：
+    \begin{equation*}
+        E_p=mgh
+    \end{equation*}
+    \item 弹力势能(弾性力による位置エネルギー)：
+    \begin{equation*}
+        E_p=\frac12kx^2
+    \end{equation*}    
+\end{itemize}
+
+\paragraph{机械能}
+\begin{center}
+    力学的エネルギー=運動エネルギー+位置エネルギー
+\end{center}
+
+\paragraph{动量守恒}
+\begin{equation*}
+    m_1\vec{v_1}+m_2\vec{v_2}=m_1\vec{{v_1}^\prime}+m_2\vec{{v_2}^\prime}
+\end{equation*}
+
+\paragraph{反弹系数}
+\begin{equation*}
+    e=-\frac{{v_1}^\prime-{v_2}^\prime}{v_1-v_2}\quad(0\le e\le1)
+\end{equation*}
+\begin{itemize}
+    \item $e=0$：完全非弹性碰撞
+    \item $0<e<1$：非弹性碰撞
+    \item $e=1$：弹性碰撞(此时动能守恒)
+\end{itemize}
+
+\paragraph{一般碰撞公式}
+\begin{equation*}
+    \begin{cases}
+        {v_1}^\prime=\frac{1}{m_1+m_2}(m_1v_1+m_2v_2-em_2(v_1-v_2))\\
+        {v_2}^\prime=\frac{1}{m_1+m_2}(m_1v_1+m_2v_2+em_1(v_1-v_2))
+    \end{cases}
+\end{equation*}
+
+\paragraph{固定面碰撞结论}
+\begin{equation*}
+    \begin{cases}
+        v^\prime=ev\\
+        h^\prime=e^2h
+    \end{cases}
+\end{equation*}
+
+\subsection{特殊运动}
+
+\paragraph{角速度与周期}
+\begin{equation*}
+    \omega = \frac{d\theta}{dt}
+\end{equation*}
+\begin{itemize}
+    \item 单位：$rad/s$
+    \item 线速度：$v=\omega r$
+    \item 周期：$T=\frac{2\pi}{\omega}$
+\end{itemize}
+
+\paragraph{圆周运动加速度}
+\begin{itemize}
+    \item 大小：
+    \begin{equation*}
+        a=\omega^2r=\frac{v^2}{r}
+    \end{equation*}
+    \item 方向：指向圆心
+\end{itemize}
+
+\paragraph{简谐振动的运动学信息}
+\begin{itemize}
+    \item 位移：$x=A\sin(\omega t+\theta_0)$
+    \item 速度：$v=A\omega\cos(\omega t+\theta_0)$
+    \item 加速度：$a=-A\omega^2\sin(\omega t+\theta_0)=-\omega^2x$
+\end{itemize}
+
+\paragraph{回复力}
+\begin{equation*}
+    F=ma=-m\omega^2x=-kx\quad(k=m\omega^2)
+\end{equation*}
+\begin{itemize}
+    \item $F\propto x$
+    \item 方向指向振动中心
+\end{itemize}
+
+\paragraph{简谐振动周期}
+\begin{equation*}
+    T=2\pi\sqrt{\frac{m}{k}}
+\end{equation*}
+
+\paragraph{单摆周期公式}
+\begin{equation*}
+    T=2\pi\sqrt{\frac{l}{g}}
+\end{equation*}
+
+\paragraph{开普勒定律}
+\begin{itemize}
+    \item 轨道法则：行星运动在以恒星为焦点的椭圆轨道上
+    \item 面积法则：行星与恒星连线的$\begin{cases}\textrm{在单位时间内扫过的面积}\\\textrm{面积速度}\end{cases}$相等
+    \item 周期法则：$T^2=ka^3\quad(k:const)$
+\end{itemize}
+
+\paragraph{面积速度}
+\begin{equation*}
+    \frac{dS}{dt}=\frac{\frac12r(v\cdot dt\sin\theta)}{dt}=\frac12rv\sin\theta
+\end{equation*}
+
+\paragraph{万有引力公式}
+\begin{equation*}
+    F=G\frac{m_1m_2}{r^2}\quad(\textrm{万有引力定数:}G=6.67\times10^{-11}N\cdot m^2\cdot kg^{-2})
+\end{equation*}
+
+\paragraph{黄金代换式}
+\begin{equation*}
+    G\frac{Mm}{R^2}=mg\implies
+    GM=gR^2
+\end{equation*}
+
+\paragraph{万有引力势能}
+\begin{equation*}
+    E_p=-G\frac{Mm}{r}
+\end{equation*}
+
+\section{热学公式}
+
+\subsection{热与能量}
+
+\paragraph{开氏温度}
+\begin{center}
+    絶対温度$T=t+273(K)$
+\end{center}
+
+\paragraph{热容量与比热}
+\begin{itemize}
+    \item 热容量：物体升高1K所需的热量
+    \item 比热：单位质量的物体升高1K所需的热量，物体单位质量的热容量
+\end{itemize}
+\begin{gather*}
+    C=m\cdot c\\
+    \Delta Q=C\cdot\Delta t=c\cdot m\cdot\Delta t
+\end{gather*}
+
+\paragraph{热量守恒定律}
+\begin{itemize}
+    \item 系统中吸热=系统中放热
+    \item $Q_\textrm{吸}=Q_\textrm{放}$
+\end{itemize}
+
+\subsection{气体分子运动}
+
+\paragraph{波意尔查理定律}
+\begin{itemize}
+    \item 波意尔定律(ボイルの法則)
+    \begin{equation*}
+        T=const\implies P\cdot V=const
+    \end{equation*}
+    \item 查理定律(シャルルの法則)
+    \begin{equation*}
+        P=const\implies\frac{V}{T}=const
+    \end{equation*}
+    \item 波意尔查理定律(ボイル・シャルルの法則)
+    \begin{equation*}
+        \frac{PV}{T}=const
+    \end{equation*}
+\end{itemize}
+
+\paragraph{理想气体状态方程}
+\begin{equation*}
+    PV=nRT\quad(R\textrm{:気体定数})
+\end{equation*}
+
+\paragraph{气体内能}
+\begin{equation*}
+    U=\frac32nRT=\frac32PV\quad(U\propto T)
+\end{equation*}
+
+\paragraph{气体做功}
+\begin{equation*}
+    W=F\cdot\Delta x=PS\cdot\Delta x=P\Delta V
+\end{equation*}
+\begin{itemize}
+    \item 压缩：$\Delta U>0$
+    \item 膨胀：$\Delta U<0$
+\end{itemize}
+
+\paragraph{热力学第一定律}
+\begin{equation*}
+    \Delta U=Q_\textrm{吸}+W_\textrm{された}
+\end{equation*}
+
+\paragraph{热效率}
+\begin{equation*}
+    \eta=\frac{W_\textrm{实际}}{Q_\textrm{吸}}
+    =\frac{W_\textrm{した}-W_\textrm{された}}{Q_\textrm{吸}}
+\end{equation*}
+
+\section{波动公式}
+
+\subsection{波的性质}
+
+\paragraph{波的基本公式}
+\begin{equation*}
+    v=\frac{\lambda}{T}=\lambda f
+\end{equation*}
+
+\paragraph{波的解析式}
+\begin{align*}
+    y(x)=&A\sin\left(\omega\left(t-\frac{x}{v}\right)\right)\\
+    =&A\sin\left(2\pi\left(\frac{t}{T}-\frac{x}{\lambda}\right)\right)
+\end{align*}
+
+\paragraph{波的干涉条件}
+\begin{itemize}
+    \item 加强：$|r_1-r_2|=2n\cdot\frac{\lambda}{2}$
+    \item 减弱：$|r_1-r_2|=(2n+1)\cdot\frac{\lambda}{2}$
+\end{itemize}
+
+\paragraph{波的反射}
+\begin{center}
+    \renewcommand\arraystretch{1.2}
+    \begin{tabular}{c|cc}
+        \hline
+        反射端&反射波图示&反射波相变\\\hline
+        自由端&镜面对称&0相变\\
+        固定端&中心对称&$\pi$相变\\\hline
+    \end{tabular}
+\end{center}
+
+\paragraph{折射定律}
+\begin{equation*}
+    \frac{\sin\theta_1}{\sin\theta_2}=
+    \frac{v_1}{v_2}=
+    \frac{\lambda_1}{\lambda_2}=
+    \frac{n_2}{n_1}(=n_{12})
+\end{equation*}
+
+\subsection{声波}
+
+\paragraph{差频公式}
+\begin{equation*}
+    f=|f_1-f_2|
+\end{equation*}
+
+\paragraph{多普勒效应}
+\begin{equation*}
+    f^\prime=\frac{V\pm u}{V\pm v}f
+\end{equation*}
+\begin{itemize}
+    \item V：波速
+    \item u：观测者的速度
+    \item v：波源的速度
+\end{itemize}
+
+\paragraph{弦上波速}
+\begin{equation*}
+    v=\sqrt{\frac{S}{\rho}}
+\end{equation*}
+
+\paragraph{弦振动频率}
+\begin{itemize}
+    \item $\lambda=\frac{2n}{l}$
+    \item $f=\frac{nv}{2l}\implies nf_1=f_n$
+\end{itemize}
+
+\paragraph{气柱振动}
+\begin{itemize}
+    \item 开管振动
+    \begin{itemize}
+        \item $\lambda=\frac{2}{n}l$
+        \item $f=\frac{nv}{2l}\implies nf_1=f_n$
+    \end{itemize}
+    \item 闭管振动
+    \begin{itemize}
+        \item $\lambda=\frac{4}{2n-1}l$
+        \item $f=\frac{(2n-1)v}{4l}\implies (2n-1)f_1=f_n$
+    \end{itemize}
+\end{itemize}
+
+\subsection{光波}
+
+\paragraph{透镜公式}
+\begin{equation*}
+    \frac{1}{a}+\frac{1}{b}=\frac{1}{f}
+\end{equation*}
+\begin{itemize}
+    \item 参数：
+    \begin{center}
+        \renewcommand\arraystretch{1.2}
+        \begin{tabular}{c|cc}
+            \hline
+            参数&正数&负数\\\hline
+            焦距f&凸透镜&凹透镜\\
+            物距a&实物&虚物\\
+            相距b&实相&虚像\\\hline
+        \end{tabular}
+    \end{center}
+    \item 倍率：$m=\left\lvert\frac{b}{a}\right\rvert$
+\end{itemize}
+
+\paragraph{双缝干涉条件}
+\begin{equation*}
+    \frac{dx}{l}=
+    \begin{cases}
+        2m\cdot\frac{\lambda}{2}&\implies\textrm{明线}\\
+        (2m+1)\cdot\frac{\lambda}{2}&\implies\textrm{暗线}
+    \end{cases}
+\end{equation*}
+
+\paragraph{回折格子干涉条件}
+\begin{equation*}
+    d\sin\theta=m\lambda
+\end{equation*}
+
+\paragraph{光程公式}
+\begin{equation*}
+    L=nl
+\end{equation*}
+
+\paragraph{薄膜干涉条件}
+\begin{equation*}
+    2nd\cos\phi=
+    \begin{cases}
+        2m\cdot\frac{\lambda}{2}&\implies
+        \textrm{0相变明线/}\pi\textrm{相变暗线}\\
+        (2m+1)\cdot\frac{\lambda}{2}&\implies
+        \textrm{0相变暗线/}\pi\textrm{相变明线}
+    \end{cases}
+\end{equation*}
+
+\paragraph{楔形膜干涉条件}
+\begin{equation*}
+    2d=2x\tan\theta=
+    \begin{cases}
+        2m\cdot\frac{\lambda}{2}&\implies
+        \textrm{0相变明线/}\pi\textrm{相变暗线}\\
+        (2m+1)\cdot\frac{\lambda}{2}&\implies
+        \textrm{0相变暗线/}\pi\textrm{相变明线}
+    \end{cases}
+\end{equation*}
+
+\paragraph{牛顿环干涉条件}
+\begin{equation*}
+    2d=\frac{r^2}{R}=
+    \begin{cases}
+        2m\cdot\frac{\lambda}{2}&\implies
+        \textrm{0相变明线/}\pi\textrm{相变暗线}\\
+        (2m+1)\cdot\frac{\lambda}{2}&\implies
+        \textrm{0相变暗线/}\pi\textrm{相变明线}
+    \end{cases}
+\end{equation*}
+
+\section{电磁公式}
+
+\subsection{电场}
+
+\paragraph{库仑定律}
+\begin{equation*}
+    F=k\frac{Qq}{r^2}
+\end{equation*}
+\begin{itemize}
+    \item $k=9\times10^9N\cdot m^2\cdot C^{-2}$
+    \item 同性相斥，异性相吸
+\end{itemize}
+
+\paragraph{电场}
+\begin{equation*}
+    \vec{E}=\frac{\vec{F}}{q}
+    \iff
+    \vec{F}=q\vec{E}
+\end{equation*}
+\begin{itemize}
+    \item 单位：N/C
+    \item 点电荷周围的电场：$E=k\frac{Q}{r^2}$
+\end{itemize}
+
+\paragraph{电势能与电势}
+\begin{equation*}
+    U=qV
+\end{equation*}
+
+\paragraph{点电荷电势}
+\begin{equation*}
+    U=k\frac{kQ}{r}
+\end{equation*}
+
+\paragraph{电容器定义式}
+\begin{equation*}
+    Q=CV
+\end{equation*}
+\begin{itemize}
+    \item V：极板两端的电势差
+    \item C：电容量，日文为電気容量，单位为法拉(F)
+\end{itemize}
+
+\paragraph{平行板电容器}
+\begin{equation*}
+    C=\varepsilon_0\frac{S}{d}
+\end{equation*}
+\begin{itemize}
+    \item $\varepsilon_0$：绝对诱电率
+    \item 极板间电场：$E=\frac{V}{d}=\frac{Q}{\varepsilon_0S}$
+\end{itemize}
+
+\paragraph{电容器串联}
+\begin{itemize}
+    \item 电荷相等
+    \item $\frac{Q}{C_1}+\frac{Q}{C_2}=V$
+    \item $\frac{Q}{C}=V$
+    \item $\frac{1}{C}=\frac{1}{C_1}+\frac{1}{C_2}$
+\end{itemize}
+
+\paragraph{电容器并联}
+\begin{itemize}
+    \item 电压相等
+    \item $VC_1+VC_2=Q$
+    \item $VC=Q$
+    \item $C=C_1+C_2$
+\end{itemize}
+
+\paragraph{电容器储能}
+\begin{equation*}
+    U=\frac12QV=\frac12CV^2=\frac{Q^2}{2C}
+\end{equation*}
+
+\paragraph{极板间引力}
+\begin{equation*}
+    F=QE_\textrm{上}=\frac12QE
+\end{equation*}
+
+\subsection{电流}
+
+\paragraph{欧姆定律}
+\begin{equation*}
+    V=IR
+\end{equation*}
+\begin{itemize}
+    \item 电阻R：日文为電気抵抗
+    \begin{itemize}
+        \item 单位：欧姆($\Omega$)
+        \item 串联：$R=R_1+R_2$
+        \item 并联：$\frac{1}{R}=\frac{1}{R_1}+\frac{1}{R_2}$
+    \end{itemize}
+    \item 焦耳热
+    \begin{equation*}
+        Q=VIt=I^2Rt=\frac{V^2}{R}t
+    \end{equation*}
+    \item (电)功率
+    \begin{equation*}
+        W=VI=I^2R=\frac{V^2}{R}
+    \end{equation*}
+\end{itemize}
+
+\paragraph{基尔霍夫定律}
+\begin{itemize}
+    \item 电流表述：回路中任意一个节点都满足$I_\textrm{流入}=I_\textrm{流出}$
+    \item 电压表述：任意一个闭合回路都满足$V_\textrm{下降}=V_\textrm{上升}$
+\end{itemize}
+
+\paragraph{惠斯通电桥}
+\begin{equation*}
+    \frac{R_1}{R_2}=\frac{R_3}{R_4}
+\end{equation*}
+
+\subsection{磁场}
+
+\textbackslash\textbackslash TODO
+
+\subsection{电磁感应}
+
+\textbackslash\textbackslash TODO
