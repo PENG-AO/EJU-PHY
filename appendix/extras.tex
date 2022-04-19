@@ -70,6 +70,85 @@
     F\approx -mg\sin\theta=-mg\cdot\frac{x}{l}=-\frac{mg}{l}x
 \end{equation*}
 
+\subsection{开普勒定律推导}
+
+将直角坐标系转换为极坐标系处理，
+\begin{equation*}
+    \begin{pmatrix}
+        A_r\\ A_\phi
+    \end{pmatrix}=
+    \begin{pmatrix}
+        \cos\phi & \sin\phi\\
+        -\sin\phi & \cos\phi
+    \end{pmatrix}
+    \begin{pmatrix}
+        A_x\\ A_y
+    \end{pmatrix}
+\end{equation*}
+由关系式$x=r\cos\phi,y=r\sin\phi$重复计算可得，$r$方向和$\phi$方向的速度为：
+\begin{gather*}
+    v_x=\dot{x}=\dot{r}\cos\phi-r\dot{\phi}\sin\phi\\
+    v_y=\dot{y}=\dot{r}\sin\phi+r\dot{\phi}\cos\phi\\
+    \Downarrow\\
+    v_r=v_x\cos\phi+v_y\sin\phi=\dot{r}\\
+    v_\phi=-v_x\sin\phi+v_y\cos\phi=r\dot{\phi}
+\end{gather*}
+$r$方向和$\phi$方向的加速度为：
+\begin{gather*}
+    a_x=\ddot{x}=(\ddot{r}-r\dot{\phi}^2)\cos\phi-(2\dot{r}\dot{\phi}+r\ddot{\phi})\sin\phi\\
+    a_y=\ddot{y}=(\ddot{r}-r\dot{\phi}^2)\sin\phi+(2\dot{r}\dot{\phi}+r\ddot{\phi})\cos\phi\\
+    \Downarrow\\
+    a_r=a_x\cos\phi+a_y\sin\phi=\ddot{r}-r\dot{\phi}^2\\
+    a_\phi=-a_x\sin\phi+a_y\cos\phi=2\dot{r}\dot{\phi}+r\ddot{\phi}=\frac1r\frac{d}{dt}(r^2\dot{\phi})
+\end{gather*}
+如此一来行星的$r$方向和$\phi$方向的运动方程即为
+\begin{gather*}
+    m(\ddot{r}-r\dot{\phi}^2)=-G\frac{Mm}{r^2}\\
+    m\frac1r\frac{d}{dt}(r^2\dot{\phi})=0
+\end{gather*}
+由$\phi$方向的运动方程可知$r^2\dot{\phi}$为与时间无关的常数，其形式可以用扇形面积公式的方式解释为面积速度。因此$r^2\dot{\phi}=h$，开普勒第二定律得证。
+
+随后用$\dot{\phi}=\frac{h}{r^2}$改写$r$方向的运动方程可得
+\begin{equation*}
+    \ddot{r}-\frac{h^2}{r^3}=-\frac{GM}{r^2}
+\end{equation*}
+其中
+\begin{gather*}
+    \dot{r}=\frac{dr}{dt}=\frac{dr}{d\phi}\frac{d\phi}{dt}=\frac{h}{r^2}\frac{dr}{d\phi}\\
+    \ddot{r}=\frac{d\dot{r}}{d\phi}\frac{d\phi}{dt}=\frac{h}{r^2}\left(\frac{d}{d\phi}\left(\frac{h}{r^2}\frac{dr}{d\phi}\right)\right)
+\end{gather*}
+代入上式可得
+\begin{equation*}
+    \frac{d}{d\phi}\left(\frac{1}{r^2}\frac{dr}{d\phi}\right)-\frac1r=\frac{-GM}{h^2}
+\end{equation*}
+在此将$\frac1r$置换为$u$，即$dr=\frac{-1}{u^2}du$，则有
+\begin{align*}
+    \frac{d}{d\phi}\left(u^2\frac{-1}{u^2}\frac{du}{d\phi}\right)-u&=\frac{-GM}{h^2}\\
+    \frac{d}{d\phi}\frac{du}{d\phi}+u&=\frac{GM}{h^2}\\
+    \frac{d^2u}{d\phi^2}+u&=\frac1l
+\end{align*}
+求解非齐次常微分方程可得
+\begin{equation*}
+    u=A\cos(\phi+\phi_0)+\frac1l
+\end{equation*}
+取$\phi_0=0$，设$A=\frac{\varepsilon}{l}$，整理可得
+\begin{equation*}
+    r=\frac{l}{\varepsilon\cos\phi+1}
+\end{equation*}
+即行星轨道为圆锥曲线，具体形状取决于其离心率。开普勒第一定律得证。
+
+最后，由椭圆面积公式可求行星公转周期为
+\begin{equation*}
+    T=\frac{\pi ab}{h/2}
+\end{equation*}
+结合$l$的数学意义(半正焦弦:$al=b^2$)和物理意义($\frac1l=\frac{GM}{h^2}$)可得
+\begin{equation*}
+    T^2=\frac{4\pi^2 a^2b^2}{h^2}
+    =\frac{4\pi^2la^3}{h^2}
+    =\frac{4\pi^2}{GM}a^3
+\end{equation*}
+至此开普勒第三定律得证。
+
 \subsection{万有引力势能推导}
 
 \begin{equation*}
