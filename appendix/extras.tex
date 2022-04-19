@@ -348,7 +348,14 @@ $r$方向和$\phi$方向的加速度为：
 \begin{equation*}
     \mathbf{B}=\frac{\mu_0I}{2\pi r^2}(-r_y,r_x,0)
 \end{equation*}
-即大小为$B=\frac{\mu_0I}{2\pi r}$，方向与$\mathbf{r}$垂直的磁场
+即大小为$B=\frac{\mu_0I}{2\pi r}$，方向与$\mathbf{r}$垂直的磁场。
+
+另外，倘若使用Ampère's circuital law则可以更加方便地求解。
+\begin{align*}
+    \oint_{\partial S}B\cdot dl=&\mu_0I\\
+    2\pi r B=&\mu_0I\\
+    B=&\frac{I}{2\pi r}
+\end{align*}
 
 \subsection{环形电流磁场推导}
 
@@ -368,4 +375,25 @@ $r$方向和$\phi$方向的加速度为：
         =\frac{\mu_0}{4\pi}\oint\frac{ldl}{(z^2+l^2)^{3/2}}=\frac{\mu_0Il^2}{2(z^2+l^2)^{3/2}}\\
     \end{cases}
 \end{align*}
-可见除$B_z$以外的磁场均为0，并且当$z=0$时$B_z=\frac{\mu_0I}{2l}$的确成立
+可见除$B_z$以外的磁场均为0，并且当$z=0$时$B_z=\frac{\mu_0I}{2l}$的确成立。
+
+\subsection{线圈磁场推导}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \foreach \x in {0,...,4} {
+            \node at (\x, 0) {$\odot$};
+            \node at (\x, 1.5) {$\otimes$};
+        }
+        \draw (0.5,-0.5) -- (0.5,0.5) node[left] {A} -- (3.5,0.5) node[right] {B} -- (3.5,-0.5) node[right] {C} -- (0.5,-0.5) node[left] {D} --cycle;
+        \draw[thick, -latex] (2.5,0.5) -- node[above] {$B$} (1.5,0.5);
+    \end{tikzpicture}
+    \caption{线圈磁场截面}
+\end{figure}
+如图所示，确定一个固定路径，采用Ampère's circuital law进行计算。
+\begin{gather*}
+    \oint_{\partial S}B\cdot dl=\mu_0\int_Sj\cdot dS\\
+    \underline{Bl}_{AB}+\underline{0}_{BC}+\underline{0}_{CD}+\underline{0}_{DA}=\mu_0I\cdot nl\\
+    B=\mu_0nI
+\end{gather*}
