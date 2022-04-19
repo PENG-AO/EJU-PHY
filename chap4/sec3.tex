@@ -126,7 +126,69 @@
 
 \subsection{安培力}
 
-\textbackslash\textbackslash TODO
+\subsubsection{平行电流间的力}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \draw[-latex] (1,1.5) arc (0:180:1 and 0.3);
+        \draw[-latex] (2,1.5) arc (0:180:2 and 0.6);
+        \draw[color=white, line width=5pt] (0,0) -- (0,3);
+        \draw[thick, -latex] (0,0) -- (0,3) node[above] {$I_1$};
+        \draw[-latex] (-1,1.5) arc (180:360:1 and 0.3);
+        \draw[-latex] (-2,1.5) arc (180:360:2 and 0.6);
+        \draw[thick, -latex] (2,0) -- (2,3) node[above] {$I_2$};
+    \end{tikzpicture}
+    \caption{平行电流间的力}
+\end{figure}
+倘若空间中存在两根无限长直导线，分别流过$I_1$与$I_2$大小的电流，那么单位长度的导线上会受到
+\begin{equation*}
+    f=\frac{\mu I_1I_2}{2\pi r}
+\end{equation*}
+大小的力。并且当电流同向时表现为吸引力，逆向时表现为排斥力。以$I_1$对$I_2$的视角审视上式则可理解为
+\begin{equation*}
+    f=\frac{\mu I_1}{2\pi r}I_2=\mu H_1\cdot I_2
+\end{equation*}
+即$I_2$受到的是来自于$I_1$所产生的磁场导致的力。因此，不难理解通电导线会受到来自于磁场的作用力。
+
+\subsubsection{安培力}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+        \clip (-5,-4) rectangle (5,4);
+        \begin{scope}[rotate=30]
+            \filldraw[color=black, fill=gray, fill opacity=0.3] (-8,-2.5) rectangle (-3,2.5);
+            \filldraw[color=black, fill=gray, fill opacity=0.5] (3,-2.5) rectangle (8,2.5);
+            \foreach \y in {-2,...,2} {
+                \draw[color=gray, -latex] (-3,\y) -- (3,\y);
+            }
+            \draw[thick, -latex] (-1.5,1.5) -- (1.5,-1.5);
+            \drawangle{(1,-1)}{(0,0)}{(1,0)};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{安培力}
+\end{figure}
+上述实验表明将通电导线(电流)置于磁场中，通电导线会受到来自于磁场的力，并称其为\underline{安培力}\footnote{安培力：$\vec{F}=I\vec{l}\times\vec{B}$}，其大小由$F=\mu HIl$给出。其中$\mu H$的部分也具有实际的物理意义：\underline{磁通量密度}，日文为磁束密度，用字母$B$表示。
+\begin{itembox}[l]{安培力}
+    \begin{equation*}
+        F=IBl\sin\theta
+    \end{equation*}
+    \begin{itemize}
+        \item $\theta$：电流方向与力的方向的夹角
+        \item 左手定则
+        \begin{itemize}
+            \item 磁场穿过手心
+            \item 四指与电流同向
+            \item 拇指方向为安培力方向
+        \end{itemize}
+        \item 使用场景：“左力右电”
+        \begin{itemize}
+            \item 左手定则：电磁力的判断
+            \item 右手(螺旋)定则：电磁现象的判断
+        \end{itemize}
+    \end{itemize}
+\end{itembox}
 
 \subsection{洛伦兹力}
 
