@@ -169,7 +169,7 @@
     \end{tikzpicture}
     \caption{安培力}
 \end{figure}
-上述实验表明将通电导线(电流)置于磁场中，通电导线会受到来自于磁场的力，并称其为\underline{安培力}\footnote{安培力：$\vec{F}=I\vec{l}\times\vec{B}$}，其大小由$F=\mu HIl$给出。其中$\mu H$的部分也具有实际的物理意义：\underline{磁通量密度}，日文为磁束密度，用字母$B$表示。
+上述实验表明将通电导线(电流)置于磁场中，通电导线会受到来自于磁场的力，即\underline{安培力}\footnote{安培力：$\vec{F}=I\vec{l}\times\vec{B}$}，大小由$F=\mu HIl$给出。其中$\mu H$的部分也具有实际的物理意义：\underline{磁通量密度}\footnote{可以理解为由环境增强后的磁场。比如向通电线圈内放入铁芯会增强原磁场。}，日文为磁束密度，用字母$B$表示。
 \begin{itembox}[l]{安培力}
     \begin{equation*}
         F=IBl\sin\theta
@@ -192,4 +192,102 @@
 
 \subsection{洛伦兹力}
 
-\textbackslash\textbackslash TODO
+\subsubsection{洛伦兹力}
+
+由本章第二节的知识可知，电流是由带电载流子(キャリア)的移动而形成的。因此，重新审视安培力，我们可以认定带点的载流子，比如电子等也会受到磁场的作用。这个力便是洛伦兹力\footnote{洛伦兹力：$\vec{F}=q\vec{v}\times\vec{B}$}，日文为ローレンツ力。但使用时需注意\underline{电流方向为正电荷的移动方向}。
+\begin{itembox}[l]{洛伦兹力}
+    \begin{equation*}
+        F=qvB\sin\theta
+    \end{equation*}
+\end{itembox}
+
+\subsubsection{带电粒子在磁场中的运动}
+
+根据洛伦兹力的性质可知，在粒子运动过程中力与运动方向始终垂直，因此洛伦兹力不做功。结合动能定理可知，粒子运动速度不发生改变，所以作用在其身上的洛伦兹力也将会是恒力。基于数学推导可知，当粒子水平入射进入磁场后会做等速圆周运动。
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \foreach \x in {1,3,5} \foreach \z in {1,3,5} {
+            \draw[->, color=gray!80] (\x,-1,\z) -- (\x,0,\z);
+        }
+        \begin{scope}[xzplane=0]
+            \fill[fill=gray!30] (0,0) rectangle (6,6);
+            \draw[thick, -latex] (4,3) arc (0:-320:1.5);
+        \end{scope}
+        \foreach \x in {1,3,5} \foreach \z in {1,3,5} {
+            \draw[->, color=gray!80] (\x,0,\z) -- (\x,1.5,\z);
+        }
+        \fill (4,0,3) circle (2pt) node[below] {$e^-$};
+        \draw[thick, -latex] (4,0,3) -- (4,0,2) node[right] {$\vec{v}$};
+        \draw[thick, -latex] (4,0,3) -- (2.5,0,3) node[below] {$\vec{F}$};
+    \end{tikzpicture}
+    \caption{粒子在磁场中的平面运动}
+\end{figure}
+
+此时洛伦兹力充当向心力，即
+\begin{equation*}
+    qvB=m\frac{v^2}{r}
+\end{equation*}
+则运动半径、周期可求。
+\begin{itembox}[l]{粒子在磁场中运动结论}
+    \begin{itemize}
+        \item 半径：$r=\frac{mv}{qB}$
+        \item 周期：$T=\frac{2\pi m}{qB}$
+    \end{itemize}
+\end{itembox}
+
+当粒子斜向入射进入磁场时，除了垂直于磁场平面上的圆周运动以外，还会在平行于磁场的方向上做匀速直线运动，因此其轨迹将会为圆柱螺线。
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \foreach \x in {-1,0,1} \foreach \z in {-1,0,1} {
+            \draw[->, color=gray!80] (\x,-1,\z) -- (\x,0,\z);
+        }
+        \begin{scope}[xzplane=0]
+            \fill[fill=gray!30] (-1.5,-1.5) rectangle (1.5,1.5);
+            \draw[dashed] (0,0) circle (1);
+        \end{scope}
+        \foreach \x in {-1,0,1} \foreach \z in {-1,0,1} {
+            \draw[->, color=gray!80] (\x,0,\z) -- (\x,4,\z);
+        }
+        \draw[thick, -latex] plot[variable=\t,domain=0:5.5, samples=100,smooth] ({cos((pi*\t) r)},{0.5*\t},{sin((pi*\t) r)});
+        \draw[dashed] (1,0,0) -- (1,0,1);
+        \draw[thick, -latex] (1,0,0) -- ++ (0,0.5,1);
+        \draw[<->] (1.2,0,0) -- node[right] {$v_{z}T$} (1.2,1,0);
+    \end{tikzpicture}
+    \caption{粒子在磁场中的空间运动}
+\end{figure}
+
+此外，体现电磁场共同作用的\underline{霍尔效应}也十分具有代表性。
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[yzplane=0] % left
+            \filldraw[color=black, dashed, fill=gray, fill opacity=0.3]  (0,0) rectangle (-0.5,3);
+            \foreach \z in {0.5,1.5,2.5} {
+                \node at (-0.25,\z) {$\ominus$};
+            }
+        \end{scope}
+        \begin{scope}[yzplane=2] % right
+            \filldraw[color=black, fill=gray, fill opacity=0.5] (0,0) rectangle (-0.5,3);
+            \foreach \z in {0.5,1.5,2.5} {
+                \node at (-0.25,\z) {$\oplus$};
+            }
+        \end{scope}
+        \begin{scope}[xzplane=0] % up
+            \draw (0,0) rectangle (2,3);
+        \end{scope}
+        \begin{scope}[xyplane=0] % back
+            \draw[dashed] (0,0) rectangle (2,-0.5);
+        \end{scope}
+        \begin{scope}[xyplane=3] % front
+            \draw (0,0) rectangle (2,-0.5);
+        \end{scope}
+        \draw[thick] (1,-0.25,-1) -- (1,-0.25,0);
+        \draw[thick, dashed] (1,-0.25,0) -- (1,-0.25,3);
+        \draw[thick, -latex] (1,-0.25,3) -- (1,-0.25,5) node[left] {$I$};
+        \draw[thick, -latex] (1,0,1.5) -- (1,1,1.5) node[above] {$B$};
+        \node at (3.5,-0.25,5) {$qvB=Eq\implies qB=\frac{V}{vd}$};
+    \end{tikzpicture}
+    \caption{霍尔效应}
+\end{figure}

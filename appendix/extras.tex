@@ -397,3 +397,79 @@ $r$方向和$\phi$方向的加速度为：
     \underline{Bl}_{AB}+\underline{0}_{BC}+\underline{0}_{CD}+\underline{0}_{DA}=\mu_0I\cdot nl\\
     B=\mu_0nI
 \end{gather*}
+
+\subsection{洛伦兹力推导}
+
+使用电流的微观定义计算单个载流子的受力即可。
+\begin{align*}
+    \vec{f}=&\frac{\vec{F}}{N}=\frac{I\vec{l}\times\vec{B}}{N}\\
+    =&\frac{nqSl\vec{v}\times\vec{B}}{nSl}\\
+    =&q\vec{v}\times\vec{B}
+\end{align*}
+
+\subsection{带电粒子在磁场中运动轨迹推导}
+
+在静磁场中带电粒子的运动方程为
+\begin{equation*}
+    m\frac{d^2\mathbf{r}}{dt^2}=q\frac{d\mathbf{r}}{dt}\times\mathbf{B}
+\end{equation*}
+假设该静磁场只存在于z方向，即$\mathbf{B}=(0,0,B)$
+\begin{equation*}
+    m\begin{pmatrix}
+     \ddot{x}\\\ddot{y}\\\ddot{z}   
+    \end{pmatrix}=
+    q\begin{pmatrix}
+        \dot{x}\\\dot{y}\\\dot{z}
+    \end{pmatrix}\times
+    \begin{pmatrix}
+        0\\0\\B
+    \end{pmatrix}=
+    qB\begin{pmatrix}
+        \dot{y}\\-\dot{x}\\0
+    \end{pmatrix}
+\end{equation*}
+其中z方向的运动方程为$m\ddot{z}=0$，即粒子在z方向做匀速直线运动。而后，使用极坐标系处理xy平面的运动，基于其转换关系
+\begin{itemize}
+    \item 速度：$\begin{cases}v_r=\dot{r}\\v_\phi=r\dot{\phi}\end{cases}$
+    \item 加速度：$\begin{cases}a_r=\ddot{r}-r\dot{\phi}^2\\a_\phi=2\dot{r}\dot{\phi}+r\ddot{\phi}\end{cases}$
+\end{itemize}
+即
+\begin{align*}
+    \begin{cases}
+        a_r=a_x\cos\phi+a_y\sin\phi
+        =\frac{qB}{m}\left(v_y\cos\phi-v_x\sin\phi\right)
+        =\frac{qB}{m}v_\phi\\
+        a_\phi=-a_x\sin\phi+a_y\cos\phi
+        =-\frac{qB}{m}\left(-v_y\sin\phi+v_x\cos\phi\right)
+        =-\frac{qB}{m}v_r\\
+    \end{cases}
+\end{align*}
+代入运动方程可得
+\begin{equation*}
+    \begin{cases}
+        \ddot{r}-r\dot{\phi}^2=\frac{qB}{m}r\dot{\phi}\\
+        2\dot{r}\dot{\phi}+r\ddot{\phi}=-\frac{qB}{m}\dot{r}
+    \end{cases}
+    \implies
+    \begin{cases}
+        \frac{\ddot{r}}{r}=\dot{\phi}\left(\frac{qB}{m}+\dot{\phi}\right)\\
+        \ddot{\phi}=-\frac{\dot{r}}{r}\left(\frac{qB}{m}+2\dot{\phi}\right)
+    \end{cases}
+\end{equation*}
+其中一式左右两边变量完全独立，因此可以拆成两个分别等于零的式子
+\begin{equation*}
+    \begin{cases}
+        \frac{\ddot{r}}{r}=0\\
+        \dot{\phi}\left(\frac{qB}{m}+\dot{\phi}\right)=0\\
+        \ddot{\phi}=-\frac{\dot{r}}{r}\left(\frac{qB}{m}+2\dot{\phi}\right)
+    \end{cases}
+\end{equation*}
+求解联立微分方程组可得
+\begin{equation*}
+    \begin{cases}
+        \ddot{r}=0\\
+        \dot{\phi}=-\frac{qB}{m}\\
+        \dot{r}=0
+    \end{cases}
+\end{equation*}
+其物理意义即为粒子在r方向上不受力、在$\phi$方向上保持恒定角速度$\frac{qB}{m}$做圆周运动。再结合z方向的匀速直线运动可知，粒子在空间上的轨迹为圆柱螺线。
