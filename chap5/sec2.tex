@@ -2,4 +2,83 @@
 
 \section{原子模型}
 
+\subsection{电子的发现}
+
+在空气稀薄的玻璃管两端施加高电压后，可在管内发现放电而产生的发光现象。进一步抽去管内气体后，发光现象消失，但可在玻璃管的正极侧发现亮斑。
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+        \draw (0,0) rectangle (2,1);
+        \draw (2,0.5) node[left] {$+$} -- (5,0.5) -- (5,2.5) -- (4,2.5);
+        \draw (4,2.75) -- (4,2.25);
+        \draw (0,0.5) node[right] {$-$} -- (-3,0.5) -- (-3,2.5) -- (-2,2.5);
+        \draw (-2,2.75) -- (-2,2.25);
+        \filldraw[rounded corners=8pt, fill=gray, color=black, fill opacity=0.2] (-2.5,2) rectangle (4.5,3);
+    \end{tikzpicture}
+    \caption{真空放电}
+\end{figure}
+这种现象就像是有什么物质从负极射出后击打到了正极侧一样，所以当时人们将其命名为阴极射线。并发现阴极射线具有如下的性质。
+\begin{itemize}
+    \item 在无外界影响的环境下其运动轨迹为直线。
+    \item 在空间中施加电场或是磁场后其运动轨迹会发生偏移。
+    \item 击打到物体上之后会有一定的压力作用。
+    \item 上述性质与极板金属和玻璃管内气体无关。
+\end{itemize}
+因此人们断定阴极射线是实物粒子且带有负电，后命名为电子。
+
+\subsection{有核模型}
+
+1897年JJ汤姆孙(英)发现了电子，并提出了原子的枣糕模型，即电子均匀地分布在带有正电的球中。尽管这种无核模型在某种程度上可以解释原子的稳定性的问题，但却无法说明原子质量的问题。
+
+1908年汤姆孙的学生卢瑟福(新西兰)通过其著名的$\alpha$粒子轰击金箔的实验\footnote{如果原子无核，那么质量远大于电子的$\alpha$粒子在穿过原子时理应只发生小幅度的偏移，虽然大部分实验现象皆是如此，但仍然存在极少的$\alpha$粒子发生了巨大的偏移，即原子内存在$\alpha$粒子也无法撼动的极重物质。}发现了原子核的存在，从而确立了有核模型的正确性。
+
+\subsubsection{波尔模型}
+
 \textbackslash\textbackslash TODO
+
+\subsection{放射性衰变}
+
+\begin{figure}[ht!]
+    \centering
+    \renewcommand\arraystretch{1.2}
+    \begin{tabular}{c|c|c|c}
+        \hline
+        &本质&穿透力&电离效果\\\hline
+        $\alpha$衰变&\ce{^4_2He}原子核&低&高\\\hline
+        $\beta$衰变&高速\ce{^0_{-1}e}&中&中\\\hline
+        $\gamma$衰变&高能电磁波&高&低\\\hline
+    \end{tabular}
+    \caption{衰变一览}
+\end{figure}
+处于不稳定状态的原子核通过放射粒子或是能量后变得稳定的过程为衰变(radioactive decay)，大体有三种典型衰变模式。计算时可先使用前后质量只差算出$\alpha$衰变的次数，而后使用$\beta$衰变补全电荷的数量。
+\begin{itemize}
+    \item \ce{^226_88Ra -> ^222_86Rn + ^4_2He}
+    \item \ce{^210_83Bi -> ^210_84Po + ^0_-1e-}
+\end{itemize}
+
+此外，一般用\underline{半衰期}来描述衰变的发生速度，即每过一个半衰期原子核的数量便会减少一半。因此，$N_0$个半衰期为$T$的原子核过了$t$时间后则只会剩余
+\begin{equation*}
+    N=N_0\left(\frac12\right)^{t/T}
+\end{equation*}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}[scale=2.5]
+        \draw[-latex] (-0.2,0) -- (1.5,0) node[right] {t};
+        \draw[-latex] (0,-0.2) -- (0,1.2) node[above] {N};
+        \draw[domain=0:1.4] plot[smooth] (\x,{0.2^\x});
+        \draw[dashed] (0,1/2) node[left] {1/2} -| (0.43,0) node[below] {T};
+        \draw[dashed] (0,1/4) node[left] {1/4} -| (0.86,0) node[below] {2T};
+        \draw[dashed] (0,1/8) node[left] {1/8} -| (1.29,0) node[below] {3T};
+    \end{tikzpicture}
+    \caption{半衰期}
+\end{figure}
+
+\subsection{核能}
+
+守恒一直是物理学家们的执着，和对称性一样被认为是自然的美。然而，随着粒子研究的深入，人们惊异地发现在原子核的层面上出现了质量不守恒的现象。即构成原子核和核子的总质量小于原子核所表现出的质量，并称该现象为\underline{质量亏损}。
+
+在此爱因斯坦(美)提出质量和能量的等价性，由此将质量守恒和能量守恒统一在了一起。
+\begin{equation*}
+    E=mc^2
+\end{equation*}
+此外，从物质的稳定性的角度也可以解释质量亏损的现象：物质总会自发地向能量低(稳定)的状态发展，因此不稳定的核子结合为稳定的原子核后能量(质量)会降低。
