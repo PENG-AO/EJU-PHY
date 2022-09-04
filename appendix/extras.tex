@@ -473,3 +473,30 @@ $r$方向和$\phi$方向的加速度为：
     \end{cases}
 \end{equation*}
 其物理意义即为粒子在r方向上不受力、在$\phi$方向上保持恒定角速度$\frac{qB}{m}$做圆周运动。再结合z方向的匀速直线运动可知，粒子在空间上的轨迹为圆柱螺线。
+
+\subsection{含自感直流电路的电流表达式推导}
+
+结合自感电势和基尔霍夫定律可得
+\begin{equation*}
+    E-IR+V=0
+\end{equation*}
+即
+\begin{equation*}
+    \frac{dI}{dt}=\frac{E-IR}{L}
+\end{equation*}
+此微分方程可解
+\begin{equation*}
+    I=\frac{E}{R}\left(1+C\exp\left(-\frac{R}{L}t\right)\right)
+\end{equation*}
+在初始条件$(t,I)=(0,0)$下可知
+\begin{equation*}
+    I=\frac{E}{R}\left(1-\exp\left(-\frac{R}{L}t\right)\right)
+\end{equation*}
+
+\subsection{自感线圈储能公式推导}
+
+\begin{equation*}
+    U=W=qV
+    =\int_0^I(Idt)\left(L\frac{dI}{dt}\right)
+    =\frac12LI^2
+\end{equation*}
