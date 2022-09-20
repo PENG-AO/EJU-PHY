@@ -500,3 +500,34 @@ $r$方向和$\phi$方向的加速度为：
     =\int_0^I(Idt)\left(L\frac{dI}{dt}\right)
     =\frac12LI^2
 \end{equation*}
+
+\subsection{交流电平均电功率推导}
+
+\begin{equation*}
+    P=\frac{W}{T}
+    =\frac1T\int_0^TI_0V_0\sin^2\omega tdt
+    =\frac12I_0V_0
+\end{equation*}
+
+\subsection{交流电电容器结论推导}
+
+\paragraph{电流} $I=\frac{dQ}{dt}=\frac{d(CV_0\sin\omega t)}{dt}=\omega CV_0\cos\omega t$
+
+\paragraph{平均功率} $\bar{P}=IV=\frac1T\int_0^TI_0V_0\cos\omega t\sin\omega tdt=0$
+
+\subsection{交流电线圈结论推导}
+
+\paragraph{电流} 根据自感线圈电压表达式以及基尔霍夫定律可得
+\begin{equation*}
+    V_0\sin\omega t-L\frac{dI}{dt}=0
+\end{equation*}
+整理后可得
+\begin{equation*}
+    dI=\frac{V_0}{L}\sin\omega tdt
+\end{equation*}
+即
+\begin{equation*}
+    I=-\frac{V_0}{\omega L}\cos\omega t
+\end{equation*}
+
+\paragraph{平均功率} $\bar{P}=IV=-\frac1T\int_0^TI_0V_0\cos\omega t\sin\omega tdt=0$
