@@ -1,0 +1,70 @@
+% extra contents of chap3
+
+\section{波动延伸}
+
+\subsection{波的解析式推导法二}
+
+假设$t=0$时刻的波形为
+\begin{equation*}
+    y_0=A\sin\left(\frac{2\pi}{\lambda}x\right)
+\end{equation*}
+那么$t$时间后改图像会向右平移$vt$单位长度，即
+\begin{equation*}
+    y=A\sin\left(\frac{2\pi}{\lambda}\left(x-vt\right)\right)
+    =A\sin\left(2\pi\left(\frac{x}{\lambda}-\frac{t}{T}\right)\right)
+\end{equation*}
+
+\subsection{差频公式推导}
+
+设两束声波分别为$y_1=\sin((\omega+\theta)t)$和$y_2=\sin((\omega-\theta)t)$，其中$\omega$远大于$\theta$。那么，根据波的叠加原理可知合成波为
+\begin{align*}
+    y=&\sin((\omega+\theta)t)+\sin((\omega-\theta)t)\\
+    =&(\sin\omega t\cos\theta t+\cos\omega t\sin\theta t)+(\sin\omega t\cos\theta t-\cos\omega t\sin\theta t)\\
+    =&(2\cos\theta t)\sin\omega t
+\end{align*}
+此外，声音的强度与振幅的平方相关，所以合成波的波峰与波谷都会被人耳当成差频接收。因此差频的频率为合成波括号中控制振幅部分频率的两倍。
+\begin{align*}
+    f=&2\times\frac{\theta}{2\pi}\\
+    =&\frac{\omega_1-\omega_2}{2\pi}\\
+    =&f_1-f_2
+\end{align*}
+
+\subsection{光程公式推导}
+
+使波长为$\lambda$的波在折射率为$n$的介质中传播$l$长的距离，那么在这段空间中存在$\frac{l}{\lambda^\prime}=\frac{nl}{\lambda}$个波。倘若把这些波换算到真空中($n=1$)中，则需要
+\begin{equation*}
+    L=\frac{l}{\lambda^\prime}\times\lambda=nl
+\end{equation*}
+的距离。称$L$为光程，满足$L=nl$。
+
+\subsection{双缝干涉光程差推导}
+
+\begin{equation*}
+    |S_1P-S_2P|=S_2H\approx d\sin\theta\approx d\tan\theta=\frac{dx}{l}
+\end{equation*}
+
+\subsection{薄膜干涉光程差推导}
+
+根据三角关系以及折射定律可知
+\begin{equation*}
+    \begin{cases}
+        AH=AB\sin\phi\\
+        BD=AB\sin\theta\\
+        \sin\theta=n\sin\phi
+    \end{cases}
+\end{equation*}
+即$n\cdot AH=BD$，$AH$与$BD$等光程。也就是说两束光到B点前的光程差为$HC+BC$。在此，将$BC$向下对称翻转得到$BC^\prime$，因而
+\begin{equation*}
+    HC+BC=HC+BC^\prime=HC^\prime=2d\cos\phi
+\end{equation*}
+由于这个距离是折射率为$n$的介质中的，所以其真空中等效的光程为$2nd\cos\phi$。
+
+\subsection{牛顿环干涉光程差推导}
+
+结合勾股定理关于$R$、$r$、$d$列方程即可。
+\begin{align*}
+    R^2=&r^2+(R-d)^2\\
+    r^2=&(2R-d)d\\
+    \downarrow&\quad R\gg d\\
+    r^2=&2Rd
+\end{align*}
