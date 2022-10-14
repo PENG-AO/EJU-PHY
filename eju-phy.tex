@@ -14,6 +14,9 @@
 \usepackage{graphicx} % 图片插入
 \graphicspath{{./img}}
 \usepackage{amsmath} % 一般公式
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother % 双线带上下标箭头
 \usepackage{mhchem} % 化学符号
 \allowdisplaybreaks % 公式跨页
 \usepackage{amssymb} % 特殊符号
