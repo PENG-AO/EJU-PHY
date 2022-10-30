@@ -188,7 +188,7 @@
 
 与直流电路不同，交流电路中电源电压的大小与方向呈周期性变化，而且在一些电子元件的作用下电流时而会出现与电压变化不同步的现象。即电压与电流的位相会不一致。
 
-\paragraph{电容器} 对于只含电容器的交流电路，倘若电压为$V=V_0\sin\omega t$，则电路中的电流为$I=\omega CV_0\cos\omega t$。
+\paragraph{电容} 对于只含电容的交流电路，倘若电压为$V=V_0\sin\omega t$，则电路中的电流为$I=\omega CV_0\cos\omega t$。
 \begin{figure}[ht!]
     \centering
     \begin{tikzpicture}[scale=0.6]
@@ -205,7 +205,7 @@
 \end{equation*}
 根据$\omega=2\pi f$可知，交流电频率越低，容抗越大。其极限情况便是频率为0的直流电，电容器会完全阻断电路。此外，在整个周期中电容器的平均功率为0。
 
-\paragraph{线圈} 对于只含线圈的交流电路，倘若电压为$V=V_0\sin\omega t$，则电路中的电流为$I=-\frac{V_0}{\omega L}\cos\omega t$。
+\paragraph{电感} 对于只含电感的交流电路，倘若电压为$V=V_0\sin\omega t$，则电路中的电流为$I=-\frac{V_0}{\omega L}\cos\omega t$。
 \begin{figure}[ht!]
     \centering
     \begin{tikzpicture}[scale=0.6]
@@ -222,6 +222,92 @@
 \end{equation*}
 根据$\omega=2\pi f$可知，交流电频率越低，感抗越小。其极限情况便是频率为0的直流电，线圈与导线无异。此外，在整个周期中线圈的平均功率为0。
 
-\subsubsection{RLC震荡电路}
+\paragraph{RLC串联电路} 考虑如下由交流电源、电阻、电感和电容器构成的串联电路。
+\begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (4,0)
+            to[vsourcesin] (-2,0)
+            to[short] (-2,2)
+            to[european resistor] (0,2)
+            to[american inductor] (2,2)
+            to[capacitor] (4,2)
+            to[short] (4,0);
+        \end{circuitikz}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw[-latex] (0,0) -- (3,0) node[right] {$I$};
+            \draw[-latex,thick] (0,0) -- (2,0) node[above] {$V_R$};
+            \draw[-latex,thick] (0,0) -- (0,1.5) node[right] {$V_L$};
+            \draw[-latex,thick] (0,0) -- (0,-1) node[right] {$V_C$};
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{RLC串联电路}
+\end{figure}
+根据各种元件在交流电路中的性质可知，倘若以共通的电流为基准，则可绘制成向量风格的图，进而通过向量合成的思路求解合成后的电压。
+\begin{gather*}
+    V_0^2=(RI_0)^2+\left(\omega LI_0-\frac{I_0}{\omega C}\right)^2\\
+    Z=\frac{V_0}{I_0}=\sqrt{R^2\left(\omega L-\frac{1}{\omega C}\right)^2}
+\end{gather*}
 
-\textbackslash\textbackslash TODO
+\paragraph{RLC并联电路} 考虑如下由交流电源、电阻、电感和电容器构成的并联电路。
+\begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0)
+            to[vsourcesin] (0,3)
+            to[short] (2,3)
+            to[european resistor] (2,0)
+            to[short] (0,0);
+            \draw (2,3)
+            to[short] (4,3)
+            to[american inductor] (4,0)
+            to[short] (2,0);
+            \draw (4,3)
+            to[short] (6,3)
+            to[capacitor] (6,0)
+            to[short] (4,0);
+        \end{circuitikz}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw[-latex] (0,0) -- (3,0) node[right] {$V$};
+            \draw[-latex,thick] (0,0) -- (2,0) node[above] {$I_R$};
+            \draw[-latex,thick] (0,0) -- (0,1.5) node[right] {$V_C$};
+            \draw[-latex,thick] (0,0) -- (0,-1) node[right] {$V_L$};
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{RLC并联电路}
+\end{figure}
+根据各种元件在交流电路中的性质可知，倘若以共通的电压为基准，则可绘制成向量风格的图，进而通过向量合成的思路求解合成后的电流。
+\begin{gather*}
+    I_0^2=\left(\frac{V_0}{R}\right)^2+\left(\omega CV_0-\frac{V_0}{\omega L}\right)^2\\
+    Z=\frac{V_0}{I_0}=\frac{1}{\sqrt{\frac{1}{R^2}+\left(\omega C-\frac{1}{\omega L}\right)^2}}
+\end{gather*}
+
+因此对于一些更加复杂的组合同样可以通过不断调整基准的方式绘制对应的向量图，进而求解合成阻值。
+
+\subsubsection{电振荡}
+
+不难发现无论是上一节中的串联电路还是并联电路，都是电感和电容在相互抵消再与电阻进行组合，而且抵消效果与交流电频率相互关联。若是频率恰当则会发生电感和电容相互彻底抵消的现象，即
+\begin{equation*}
+    \omega L=\frac{1}{\omega C}\implies
+    \omega=\frac{1}{\sqrt{LC}}
+\end{equation*}
+此时对应的频率为
+\begin{equation*}
+    f=\frac{\omega}{2\pi}=\frac{1}{2\pi\sqrt{LC}}
+\end{equation*}
+
+\paragraph{串联振荡} 代入RLC串联电路的阻值表达式可发现，此时阻值最小，即电流最大。因此特定的频率会使得电路中产生极大的电流。
+\paragraph{并联振荡} 代入RLC并联电路的阻值表达式可发现，此时最值最大，即电流最小。此时合成阻值为$R$，相当于主路的电流并没有流入电感和电容构成的部分。因此可以认为LC部分和R相互独立，在彼此之间进行电流交换，也正因如此满足能量守恒。
+\begin{equation*}
+    \frac12LI^2+\frac12CV^2=const
+\end{equation*}
