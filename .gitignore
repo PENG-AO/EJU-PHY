@@ -1,4 +1,20 @@
+# mac resource file
 .DS_Store
-latex_output/
-drafts/
+
+# output pdf file
+*.pdf
+
+# auxiliary file
 *.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.fdb_latexmk
+
+# temorary directory
+drafts/
