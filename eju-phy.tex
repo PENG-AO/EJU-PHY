@@ -1,8 +1,17 @@
 \documentclass[oneside, b5paper]{book}
 %% 总设置
 \usepackage{xeCJK} % 中英日支持
-\setCJKmainfont{LXGW Bright}
-\setmainfont{LXGW Bright}
+\usepackage{fontspec}
+\setCJKmainfont[
+    Path=fonts/,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic
+]{LXGWBright}
+\setmainfont[
+    Path=fonts/,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic
+]{LXGWBright}
 \usepackage{hyperref} % 超链接引用
 \hypersetup{
     colorlinks=true,
@@ -17,7 +26,7 @@
 \graphicspath{{./img}}
 \usepackage{amsmath} % 一般公式
 \usepackage{extarrows} % 上下标长符号
-\usepackage{mhchem} % 化学符号
+\usepackage[version=4]{mhchem} % 化学符号
 \allowdisplaybreaks % 公式跨页
 \usepackage{amssymb} % 特殊符号
 \usepackage{tikz} % 2d绘图
